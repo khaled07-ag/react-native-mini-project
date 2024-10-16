@@ -6,6 +6,8 @@ import Home from "./screens/home";
 import ItemDetails from "./screens/ItemDetails";
 import { NavigationContainer } from "@react-navigation/native";
 import ProductNavigation from "./navigation/ProductNavigation";
+import AuthNavigation from "./navigation/AuthNavigation";
+import MainNavigation from "./navigation/MainNavigation";
 export default function App() {
   const queryClient = new QueryClient();
   return (
@@ -13,7 +15,8 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         {/* <SafeAreaProvider>
         <SafeAreaView style={{ flex: 1 }}> */}
-          <ProductNavigation />
+          {/* <ProductNavigation /> */}
+          <MainNavigation />
         {/* </SafeAreaView>
       </SafeAreaProvider> */}
     </QueryClientProvider>

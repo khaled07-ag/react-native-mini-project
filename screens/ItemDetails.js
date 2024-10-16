@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image,TouchableOpacity } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { getItemById } from "../api/items";
@@ -44,16 +44,16 @@ const ItemDetails = ({ route }) => {
           backgroundColor: "white",
         }}
       >
-        <View style={{ flexDirection: "col",alignItems:"center" ,flex:2}}>
+        <View style={{ flexDirection: "col",alignItems:"center" ,flex:2,gap:30}}>
           <Text style={{ fontSize: 20, fontWeight: "bold" }}>{name}</Text>
           
      
 
         <Text style={{ fontSize: 16, fontWeight: "300" }}>{description}</Text>
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>{price}</Text>
+        <Text style={{ fontSize: 16, fontWeight: "300" }}>{price} KD</Text>
         </View>
         
-        <View
+        <TouchableOpacity
           style={{
             flexDirection: "row",
             backgroundColor: "blue",
@@ -69,7 +69,7 @@ const ItemDetails = ({ route }) => {
           <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
             Add to Cart
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

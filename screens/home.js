@@ -77,12 +77,10 @@ const Home = () => {
               style={{
                 width: 150,
                 height: 150,
-                borderWidth: 1,
-                borderColor: "black",
-                gap: 10,
+                gap: 20,
                 justifyContent: "center",
                 alignItems: "center",
-
+                padding: 20,
                 borderRadius: 10,
               }}
               onPress={() => navigation.navigate("Item Details",{
@@ -95,10 +93,10 @@ const Home = () => {
             >
               <Image
                 source={{ uri: "https://react-native-mini-project-items.eapi.joincoded.com/"+item.image }}
-                style={{ width: "50%", height: "50%", borderRadius: 10 }}
+                style={{ width: 100, height: 100, borderRadius: 10,marginBottom:-15 }}
               />
               <Text>{item.name}</Text>
-              <Text>{item.price}</Text>
+              <Text>{item.price} KD</Text>
             </TouchableOpacity>
           ))}
         </View>
