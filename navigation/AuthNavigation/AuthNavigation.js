@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from '../screens/Login'
-import Signup from '../screens/Signup'
+import Login from '../../screens/Auth/Login'
+import SignUp from '../../screens/Auth/Signup'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const Stack = createNativeStackNavigator();
@@ -26,7 +26,7 @@ const AuthNavigation = () => {
       tabBarActiveTintColor: 'tomato',
       tabBarInactiveTintColor: 'gray',
     })}>
-      <Stack.Screen name="Signup" component={Signup} />
+      <Stack.Screen name="Signup" component={SignUp} />
       <Stack.Screen name="Login" component={Login} />
       
     </Stack.Navigator>

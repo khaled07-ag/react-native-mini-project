@@ -16,6 +16,7 @@ const getCategoryById = async (id) => {
         console.log(error)
    } 
 };
+
  export {
     getAllCategories,
     getCategoryById

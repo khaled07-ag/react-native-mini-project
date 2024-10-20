@@ -1,14 +1,24 @@
 import { StyleSheet, Text, View,TextInput,TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
+import { signup } from '../../api/auth'
 import { useNavigation } from '@react-navigation/native'
-
-const Signup = () => {
+import { useMutation } from '@tanstack/react-query'
+import UserContext from '../../context/UserContext'
+import { storeToken } from '../../api/storage'
+const SignUp = () => {
   const navigation = useNavigation();
-    const [userInfo,setUserInfo] = useState({
-        name:"",
-        email:"",
-        password:"",
-    })
+    const [userInfo,setUserInfo] = useState({})
+    const {setUser} = useContext(UserContext)
+  const{mutate,isLoading} = useMutation({
+    mutationKey:["signup"],
+    mutationFn: async()=>{
+      signup(userInfo)
+    },
+    onSuccess:()=>{
+      setUser(true)
+      
+    }
+  })
   return (
     <View
     style={{
@@ -19,7 +29,7 @@ const Signup = () => {
     >
       <Text style={{fontSize:20,fontWeight:"bold", marginBottom:20}}>Signup</Text>
         <TextInput
-        placeholder='Username'
+        placeholder='First Name'
         style={{
             width:"80%",
             height:40,
@@ -29,10 +39,11 @@ const Signup = () => {
             paddingHorizontal:10,
             marginVertical:10,
         }}
+        onChangeText={(text)=>setUserInfo({...userInfo,firstName:text})}
         
         />
         <TextInput
-        placeholder='Email'
+        placeholder='Last Name'
         style={{
             width:"80%",
             height:40,
@@ -42,6 +53,20 @@ const Signup = () => {
             paddingHorizontal:10,
             marginVertical:10,
         }}
+        onChangeText={(text)=>setUserInfo({...userInfo,lastName:text})}
+        />
+        <TextInput
+        placeholder='Phone Number'
+        style={{
+            width:"80%",
+            height:40,
+            borderWidth:1,
+            borderColor:"#000",
+            borderRadius:10,
+            paddingHorizontal:10,
+            marginVertical:10,
+        }}
+        onChangeText={(text)=>setUserInfo({...userInfo,phoneNumber:text})}
         />
         <TextInput
         placeholder='Password'
@@ -55,6 +80,7 @@ const Signup = () => {
             paddingHorizontal:10,
             marginVertical:10,
         }}
+        onChangeText={(text)=>setUserInfo({...userInfo,password:text})}
         />
         <View style={{
             width:"80%",
@@ -72,6 +98,7 @@ const Signup = () => {
             justifyContent:"center",
             alignItems:"center",
         }}
+        onPress={mutate}
         >
             <Text>Signup</Text>
         </TouchableOpacity>
@@ -82,6 +109,6 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignUp
 
 const styles = StyleSheet.create({})

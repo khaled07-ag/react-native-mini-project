@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import AuthNavigation from './AuthNavigation';
+import AuthNavigation from '../AuthNavigation/AuthNavigation';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import ProductNavigation from './ProductNavigation';
-import Profile from '../screens/Profile';
+import ProductNavigation from '../ProductNavigation/ProductNavigation';
+import Profile from '../../screens/Profile';
 const MainNavigation = () => {
   const Tab = createBottomTabNavigator();
   return (

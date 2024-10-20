@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../screens/home';
-import ItemDetails from '../screens/ItemDetails';
+import Home from '../../screens/home';
+import ItemDetails from '../../screens/ItemDetails';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Stack = createNativeStackNavigator();
